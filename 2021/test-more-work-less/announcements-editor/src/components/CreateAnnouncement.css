@@ -1,0 +1,17 @@
+.create-announcement{
+    min-width: 50rem;
+  }
+
+.group-btns {
+    padding-left: 40rem;
+}
+
+.text-toolbar{
+  width: 100%;
+}
+
+/* Added to prevent link tooltip in title from 
+being obscured by description text toolbar */
+.ql-tooltip {
+  z-index: 999 !important;
+}

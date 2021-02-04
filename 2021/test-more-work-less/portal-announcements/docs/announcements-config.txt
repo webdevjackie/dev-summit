@@ -1,0 +1,17 @@
+<div class="announcementsConfig" style="display:none">
+{
+    "announcementDialog": {
+        "title": "Announcements",
+        "closeButtonText": "Close",
+        "neverShowText": "Click to hide until new announcements are added",
+        "datePattern": "M/dd/yyyy h:ma",
+        "announcements": [
+            {
+                "date": "01/29/2021 10:00AM",
+                "title": "Upcoming Upgrade",
+                "description": "Default example format for announcement to users of upcoming upgrade"
+            }
+        ]
+    }
+}
+</div>

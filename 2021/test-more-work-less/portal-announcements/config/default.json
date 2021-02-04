@@ -1,0 +1,14 @@
+{
+    "announcementsHTML": "<script type='text/javascript' src='./customizations/announcements/InitializeAnnouncements.js'></script>",
+    "announcementTitle": "\"No Active Announcements\"",
+    "announcementContent": "\"There are no active announcements at this time.\"",
+    "configCustomizations": "\n\t\t\t{\n\t\t\tname: \"customizations\",\n\t\t\tlocation: \"../../../../customizations\" \n\t\t\t},",
+    "Portal": {
+        "portalHome": "C:/Program Files/ArcGIS/Portal/",
+        "version": "10.8.1",
+        "release": "1.0.0"
+    },
+    "DeployTo": {
+        "homePage": true
+    }
+}
