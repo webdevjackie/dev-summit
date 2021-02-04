@@ -1,5 +1,6 @@
 <div class="announcementsConfig" style="display:none">
 {
+    "helpLink": "https://www.developers.arcgis.com",
     "announcementDialog": {
         "title": "Announcements",
         "closeButtonText": "Close",
@@ -12,6 +13,31 @@
                 "description": "Default example format for announcement to users of upcoming upgrade"
             }
         ]
+    },
+    "browseData": {
+            "visible": false,
+            "title": "Browse Data by Categories",
+            "categories": [
+                {"name": "Farming", "link": "https://www.google.com"},
+                {"name": "Biota", "link": "https://www.google.com"},
+                {"name": "Boundaries", "link": "https://www.google.com"},
+                {"name": "Climatology / Meteorology / Atmosphere", "link": "https://www.google.com"},
+                {"name": "Economy", "link": "https://www.google.com"},
+                {"name": "Elevation", "link": "https://www.google.com"},
+                {"name": "Environment", "link": "https://www.google.com"},
+                {"name": "Geoscientific Information", "link": "https://www.google.com"},
+                {"name": "Health", "link": "https://www.google.com"},
+                {"name": "Imagery Base Maps Earth Cover", "link": "https://www.google.com"},
+                {"name": "Intelligence Military", "link": "https://www.google.com"},
+                {"name": "Inland Waters", "link": "https://www.google.com"},
+                {"name": "Location", "link": "https://www.google.com"},
+                {"name": "Oceans", "link": "https://www.google.com"},
+                {"name": "Planning Adastre", "link": "https://www.google.com"},
+                {"name": "Society", "link": "https://www.google.com"},
+                {"name": "Structure", "link": "https://www.google.com"},
+                {"name": "Transportation", "link": "https://www.google.com"},
+                {"name": "Utilities Communication", "link": "https://www.google.com"}
+            ]
     }
 }
 </div>

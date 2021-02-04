@@ -56,19 +56,6 @@ it('save btn enabled when announcement is complete', () => {
      )).toEqual(true);
 });
 
-it('clicking save fires the save announcement', () => {
-    const instance = mountWithTheme(
-        <CreateAnnouncement
-        />
-      ).find(CreateAnnouncement).instance();
-    const cancelSpy = jest.spyOn(instance, 'cancelAnnouncement');
-    const saveSpy = jest.spyOn(instance, 'saveAnnouncement');
-
-    instance.saveAnnouncement();
-
-    expect(cancelSpy).not.toHaveBeenCalled();
-    expect(saveSpy).toHaveBeenCalled();
-});
 
 it('clicking cancel button will cancel announcement', () => {
     const mockFn = jest.fn();
