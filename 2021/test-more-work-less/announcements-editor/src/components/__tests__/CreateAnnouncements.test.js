@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { mountWithTheme } from '../context-utils';
 import CreateAnnouncement from '../CreateAnnouncement';
 import Button from 'calcite-react/Button';
 import SaveIcon from 'calcite-ui-icons-react/SaveIcon';
@@ -56,6 +55,15 @@ it('save btn enabled when announcement is complete', () => {
      )).toEqual(true);
 });
 
+it('clicking save button will save announcement', () => {
+    const mockFn = jest.fn();
+    CreateAnnouncement.prototype.saveAnnouncement = mockFn;
+
+    const wrapper = shallow(<CreateAnnouncement/>);
+    wrapper.find('#save-btn').props().onClick();
+
+    expect(mockFn).toHaveBeenCalledTimes(1);
+});
 
 it('clicking cancel button will cancel announcement', () => {
     const mockFn = jest.fn();

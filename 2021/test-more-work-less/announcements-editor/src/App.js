@@ -196,7 +196,7 @@ class App extends Component {
       portalLoadStatus: 'loading'
     });
     const config = this.state.config;
-    const cssUrl = config.cssUrl;
+    const cssUrl = `${config.jsapiUrl}esri/css/main.css`;
     loadCss(cssUrl);
 
     const options = {
@@ -231,13 +231,11 @@ class App extends Component {
 
         const portalUrl = portal.restUrl;
         const portalID = portal.id;
-        // Set currentView to ensure it is updated
         this.setState({
           ...this,
           portalLoadStatus: 'success', 
           portalDescription: description,
           currentAnnouncements: currentAnnouncements,
-          currentView: 'active-list',
           portalUrl: portalUrl,
           portalID: portalID
          });

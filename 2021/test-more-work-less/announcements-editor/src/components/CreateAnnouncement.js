@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { unescape } from 'lodash';
 
 import Form, { FormControl, FormControlLabel, FormHelperText } from 'calcite-react/Form';
@@ -80,11 +79,7 @@ class CreateAnnouncement extends Component {
         }
     }
     
-    saveAnnouncement(e) {
-        // Since this function is the result of a form submission, it was sometimes causing a page reload
-        // before the portal description was actually updated. preventDefault stops this, and we
-        // later close the form in App.js->loadPortalAnnouncements
-        e.preventDefault();
+    saveAnnouncement() {
         const title = AnnouncementUtils.fixDoubleQuotes(this.state.title);
         const description = AnnouncementUtils.fixDoubleQuotes(this.state.description);
         const date = this.state.date || AnnouncementUtils.formatDate(new Date());
@@ -101,7 +96,7 @@ class CreateAnnouncement extends Component {
         }
 
         const announcementID = '';
-        
+
         AnnouncementUtils.updatePortalDescription(announcementID, props);
     }
 

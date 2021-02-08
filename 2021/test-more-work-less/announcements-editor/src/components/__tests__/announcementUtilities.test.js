@@ -56,8 +56,8 @@ it('removes >=2 consecutive whitespace chars', () => {
 });
 
 it('formats date', () => {
-    const dirtyDate = new Date('Fri Jan 25 2019 14:47:16 GMT-0500 (Eastern Standard Time)');
-    const cleanDate = '1/25/2019 2:47PM';
+    const dirtyDate = new Date('Fri Jan 25 2019 11:47:16 GMT-0500 (Eastern Standard Time)');
+    const cleanDate = '1/25/2019 11:47AM';
 
     const formattedDate = AnnouncementUtils.formatDate(dirtyDate);
 
@@ -117,22 +117,4 @@ it('checks if date format is valid ', () => {
     expect(AnnouncementUtils.isDateInvalid(invalidDate2)).toEqual(true);
     expect(AnnouncementUtils.isDateInvalid(invalidDate3)).toEqual(true);
     expect(AnnouncementUtils.isDateInvalid(validDate)).toEqual(false);
-});
-
-it('removes text from inside <div> orgDescription json structure </div>', () => {
-    const dirtyDescription = "<div class=\"config\" style=\"display:none;\"> <font size=\"4\">For technical support contact the CIGT Support Team </font><font size=\"4\">or call our call: 555-867-5309</font> {     \"helpLink\": \"https://www.arcgis.com\",     \"announcementDialog\": {         \"title\": \"Announcements\",         \"closeButtonText\": \"Close\",         \"neverShowText\": \"Don't show this again until there is a new announcement.\",         \"datePattern\": \"M/dd/yyyy h:ma\",         \"announcements\": []},     \"browseData\": {         \"visible\": false,         \"title\": \"Browse Data by Categories\",         \"categories\": [             {\"name\": \"Farming\", \"link\": \"https://www.google.com\"}         ]     } }  <font size=\"4\"></font><font size=\"4\"><ul><li><font size=\"4\">open portal as an administrator and navigate to Organization/settings/Home page/Organization description</font></li><li>Click edit and click on the View HTML Source button to add the initial announcement json content and and click on save</li><li>refresh/kill browser and verify notification dialog displays.</li><li>go back to Organization description add the following message: For technical support contact the CIGT Support Team CIGT-SUPPORT_TEAM@esri.tech or call: 555-867-5309</li><li>then click save</li><li>kill browser and verify notification dialog displays.</li></ul></font> </div>";
-    const cleanDescription = "<font size=\"4\">For technical support contact the Support Team </font><font size=\"4\">or call our call: 555-867-5309</font><font size=\"4\"></font><font size=\"4\"><ul><li><font size=\"4\">open portal as an administrator and navigate to Organization/settings/Home page/Organization description</font></li><li>Click edit and click on the View HTML Source button to add the initial announcement json content and and click on save</li><li>refresh/kill browser and verify notification dialog displays.</li><li>go back to Organization description add the following message: For technical support contact the CIGT Support Team CIGT-SUPPORT_TEAM@esri.tech or call: 555-867-5309</li><li>then click save</li><li>kill browser and verify notification dialog displays.</li></ul></font><div class=\"config\" style=\"display:none;\">  {     \"helpLink\": \"https://www.arcgis.com\",     \"announcementDialog\": {         \"title\": \"Announcements\",         \"closeButtonText\": \"Close\",         \"neverShowText\": \"Don't show this again until there is a new announcement.\",         \"datePattern\": \"M/dd/yyyy h:ma\",         \"announcements\": []},     \"browseData\": {         \"visible\": false,         \"title\": \"Browse Data by Categories\",         \"categories\": [             {\"name\": \"Farming\", \"link\": \"https://www.google.com\"}         ]     } }   </div>";
-
-    const fixedDescription = AnnouncementUtils.removeTextFromJson(dirtyDescription);
-
-    expect(fixedDescription).toEqual(cleanDescription);
-});
-
-it('Reformat announcements to be scaped after description was modified by portal org description', () => {
-    let inList = [{date:"9/2/2020 11:15AM", description:"DEV Team::<ol><li>Jackie Roberts (<strong>Complaints </strong>Supervisor)</li><li>Gary Nickelson (<strong>Group </strong><span style='color: rgb(230, 0, 0);'>Ownership </span>Tool)</li><li>Brian Dauernheim (<strong>Classification </strong>Tool)</li><li>Richard Yeager (<strong>Announcements </strong>Tool)</li><li>Shannon Brown (All other technical <span style='color: rgb(230, 0, 0);'>issues</span>)</li></ol>", title:"SECOND ANNOUNCEMENT"}];
-    let outLit = [{date: "9/2/2020 11:15AM", description: "DEV Team::&lt;ol&gt;&lt;li&gt;Jackie Roberts (&lt;strong&gt;Complaints &lt;/strong&gt;Supervisor)&lt;/li&gt;&lt;li&gt;Gary Nickelson (&lt;strong&gt;Group &lt;/strong&gt;&lt;span style=&#39;color: rgb(230, 0, 0);&#39;&gt;Ownership &lt;/span&gt;Tool)&lt;/li&gt;&lt;li&gt;Brian Dauernheim (&lt;strong&gt;Classification &lt;/strong&gt;Tool)&lt;/li&gt;&lt;li&gt;Richard Yeager (&lt;strong&gt;Announcements &lt;/strong&gt;Tool)&lt;/li&gt;&lt;li&gt;Shannon Brown (All other technical &lt;span style=&#39;color: rgb(230, 0, 0);&#39;&gt;issues&lt;/span&gt;)&lt;/li&gt;&lt;/ol&gt;", title:"SECOND ANNOUNCEMENT"}];
-    
-    AnnouncementUtils.reformatAnnouncements(inList);
-
-    expect(outLit).toEqual(inList);
 });

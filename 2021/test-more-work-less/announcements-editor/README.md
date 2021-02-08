@@ -5,7 +5,6 @@ Users can update current announcements displayed on the Portal homepage.
 In `config.json`, update the following keys to configure the build for a specific environment:
 - portalURL :  "https://<server>/portal",
 - jsapiURL: "https://js.arcgis.com/${version}/",
-- cssUrl: "https://js.arcgis.com/${version}/esri/css/main.css" 
 <!-- After applying your changes ensure you can reach all urls in Chrome or Firefox-->
 
 ## Available Scripts

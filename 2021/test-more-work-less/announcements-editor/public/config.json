@@ -1,5 +1,4 @@
 {
     "portalUrl": "https://jroberts2.esri.com/portal",
-    "jsapiUrl": "https://js.arcgis.com/4.10/",
-    "cssUrl": "https://js.arcgis.com/4.10/esri/css/main.css"
+    "jsapiUrl": "https://js.arcgis.com/4.10/"
 }
